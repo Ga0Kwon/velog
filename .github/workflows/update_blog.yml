@@ -1,12 +1,11 @@
 name: Update Blog Posts
-  
 
 on:
   push:
-      branches:
-        - master  # 또는 워크플로우를 트리거하고 싶은 브랜치 이름
+    branches:
+      - main  # Assuming your default branch is named "main"
   schedule:
-    - cron: '0 2 * * *'  # 매일 오전 11시에 실행 (UTC 기준이기 떄문에 +9한게 한국 시간)
+    - cron: '0 2 * * *'
 
 jobs:
   update_blog:
@@ -16,10 +15,13 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v2
 
+    - name: Set up Git
+      run: |
+        git config --global user.email "github-actions[bot]@users.noreply.github.com"
+        git config --global user.name "github-actions[bot]"
+
     - name: Push changes
       run: |
-         git config --global user.email "github-actions[bot]@users.noreply.github.com"
-         git config --global user.name "github-actions[bot]"
          git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velog.git
          git push origin main
 
