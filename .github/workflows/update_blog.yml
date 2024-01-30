@@ -14,10 +14,10 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-        
+
     - name: Set up Git
       run: |
-        git config --global user.email "kgayeong39@gmail.com"
+        git config --global user.email "kgayeon39@gmail.com"
         git config --global user.name "Ga0Kwon"
 
     - name: Push changes
@@ -36,3 +36,20 @@ jobs:
 
     - name: Run script
       run: python scripts/update_blog.py
+
+  another_job:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v2
+
+    - name: Set up Git
+      run: |
+        git config --global user.email "your-email@example.com"
+        git config --global user.name "Your GitHub Username"
+
+    - name: Another step...
+      run: echo "This is another job."
+
+# Add more jobs as needed
