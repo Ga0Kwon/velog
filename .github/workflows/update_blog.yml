@@ -18,9 +18,10 @@ jobs:
 
     - name: Push changes
       run: |
-        git config --global user.name 'github-actions[bot]'
-        git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        git remote set-url origin https://<your-username>:<your-token>@github.com/Ga0Kwon/velog.git
+         git config --global user.email "github-actions[bot]@users.noreply.github.com"
+         git config --global user.name "github-actions[bot]"
+         git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velog.git
+         git push origin main
 
     - name: Set up Python
       uses: actions/setup-python@v2
