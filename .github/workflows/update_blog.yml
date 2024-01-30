@@ -14,7 +14,14 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-
+      
+    - name : Debug
+      run :  |
+        echo "GH_PAT: ${{ secrets.GH_PAT }}"
+        git remote -v
+        git branch -a
+        git log -1
+        
     - name: Set up Git
       run: |
         git config --global user.email "github-actions[bot]@users.noreply.github.com"
