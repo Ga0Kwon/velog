@@ -3,7 +3,7 @@ name: Update Blog Posts
 on:
   push:
     branches:
-      - main  # Assuming your default branch is named "main"
+      - main
   schedule:
     - cron: '0 0 * * *'
 
@@ -19,7 +19,15 @@ jobs:
       run: |
         git config --global user.email "kgayeong39@gmail.com"
         git config --global user.name "Ga0Kwon"
-    
+        
+    - name: Set up SSH
+      run: |
+        mkdir -p ~/.ssh
+        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+        chmod 600 ~/.ssh/id_rsa
+        ssh-keyscan github.com >> ~/.ssh/known_hosts
+        git remote set-url origin git@github.com:Ga0Kwon/velogToGithub.git
+        
     - name: Debug
       run: |
         echo "GH_PAT: ${{ secrets.GH_PAT }}"
@@ -27,16 +35,16 @@ jobs:
         git branch -a
         git log -1
         cat $HOME/.gitconfig
-
-    - name: Clear Git cache   # 캐시 지우기
+        
+    - name: Clear Actions cache
       run: |
-        git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velog.git
+        git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velogToGithub.git
         git fetch --prune --unshallow
         git gc --aggressive --prune=all
-    
+        
     - name: Push changes
       run: |
-         git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velog.git
+         git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velogToGithub.git
          git push origin main
 
     - name: Set up Python
@@ -50,20 +58,3 @@ jobs:
 
     - name: Run script
       run: python scripts/update_blog.py
-
-  another_job:
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout
-      uses: actions/checkout@v2
-
-    - name: Set up Git
-      run: |
-        git config --global user.email "kgayeong39@gmail.com"
-        git config --global user.name "Ga0Kwon"
-
-    - name: Another step...
-      run: echo "This is another job."
-
-# Add more jobs as needed
