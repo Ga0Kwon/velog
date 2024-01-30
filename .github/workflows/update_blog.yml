@@ -46,8 +46,8 @@ jobs:
 
     - name: Set up Git
       run: |
-        git config --global user.email "your-email@example.com"
-        git config --global user.name "Your GitHub Username"
+        git config --global user.email "kgayeon39@gmail.com"
+        git config --global user.name "Ga0Kwon"
 
     - name: Another step...
       run: echo "This is another job."
