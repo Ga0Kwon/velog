@@ -4,7 +4,7 @@ name: Update Blog Posts
 on:
   push:
       branches:
-        - master  # 또는 워크플로우를 트리거하고 싶은 브랜치 이름
+        - main  # 또는 워크플로우를 트리거하고 싶은 브랜치 이름
   schedule:
     - cron: '0 2 * * *'  # 매일 오전 11시에 실행 (UTC 기준이기 떄문에 +9한게 한국 시간)
 
