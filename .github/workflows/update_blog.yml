@@ -22,10 +22,11 @@ jobs:
         
     - name: Debug
       run: |
-        echo "GH_PAT: ${{ secrets.GH_PAT }}"
+        echo "GH_PAT: $GH_PAT"
         git remote -v
         git branch -a
         git log -1
+        cat $HOME/.gitconfig
       
     - name: Push changes
       run: |
