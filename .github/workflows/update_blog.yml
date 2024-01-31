@@ -38,15 +38,18 @@ jobs:
         
     - name: Clear Actions cache
       run: |
-        git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/Ga0Kwon/velog.git
+        git remote set-url origin https://${token}@github.com/Ga0Kwon/velog.git
         git fetch --prune --unshallow
         git gc --aggressive --prune=all
         
     - name: Push changes
+      env:
+        token: ${{ secrets.GH_TOKEN }}
       run: |
-         git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/Ga0Kwon/velog.git
+         git remote set-url origin https://${token}@github.com/Ga0Kwon/velog.git
          git push origin main
-
+      
+        
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
