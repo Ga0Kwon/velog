@@ -1,11 +1,12 @@
 name: Update Blog Posts
+  
 
 on:
   push:
-    branches:
-      - main
+      branches:
+        - master  # 또는 워크플로우를 트리거하고 싶은 브랜치 이름
   schedule:
-    - cron: '0 0 * * *'
+    - cron: '0 0 * * *'  # 매일 자정에 실행
 
 jobs:
   update_blog:
@@ -14,42 +15,13 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
-    
-    - name: Set up Git
+
+    - name: Push changes
       run: |
         git config --global user.name 'github-actions[bot]'
         git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-        
-    - name: Set up SSH
-      run: |
-        mkdir -p ~/.ssh
-        echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-        chmod 600 ~/.ssh/id_rsa
-        ssh-keyscan github.com >> ~/.ssh/known_hosts
-        git remote set-url origin git@github.com:Ga0Kwon/velog.git
-        
-    - name: Debug
-      run: |
-        echo "GH_PAT: ${{ secrets.GH_TOKEN }}"
-        git remote -v
-        git branch -a
-        git log -1
-        cat $HOME/.gitconfig
-        
-    - name: Clear Actions cache
-      run: |
-        git remote set-url origin https://${token}@github.com/Ga0Kwon/velog.git
-        git fetch --prune --unshallow
-        git gc --aggressive --prune=all
-        
-    - name: Push changes
-      env:
-        token: ${{ secrets.GH_TOKEN }}
-      run: |
-         git remote set-url origin https://${token}@github.com/Ga0Kwon/velog.git
-         git push origin main
-      
-        
+        git push https://${{ secrets.GH_TOKEN }}@github.com/Ga0Kwon/velog.git
+
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
@@ -61,3 +33,5 @@ jobs:
 
     - name: Run script
       run: python scripts/update_blog.py
+
+
