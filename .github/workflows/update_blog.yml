@@ -30,7 +30,7 @@ jobs:
         
     - name: Debug
       run: |
-        echo "GH_PAT: ${{ secrets.GH_PAT }}"
+        echo "GH_PAT: ${{ secrets.GH_TOKEN }}"
         git remote -v
         git branch -a
         git log -1
@@ -38,13 +38,13 @@ jobs:
         
     - name: Clear Actions cache
       run: |
-        git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velog.git
+        git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/Ga0Kwon/velog.git
         git fetch --prune --unshallow
         git gc --aggressive --prune=all
         
     - name: Push changes
       run: |
-         git remote set-url origin https://${{ secrets.GH_PAT }}@github.com/Ga0Kwon/velog.git
+         git remote set-url origin https://${{ secrets.GH_TOKEN }}@github.com/Ga0Kwon/velog.git
          git push origin main
 
     - name: Set up Python
