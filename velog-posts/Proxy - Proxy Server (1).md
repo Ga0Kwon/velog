@@ -76,4 +76,5 @@
 <p>&quot;일단, 정리를 하긴 했는데 부족한 부분이나 빠진 부분이 존재할지도 모른다. (더 정리해야하는 부분은 추후에 보완 예정) 또, 이 내용을 작성하면서 WEB SERVER와 WAS이 무엇이고, 어떻게 다른지도 정리해야겠다는 생각이 들었다. 다음 이론 포스트는 WEB SERVER와 WAS에 다룰 예정이다.&quot;</p>
 </blockquote>
 <p><img alt="" src="https://velog.velcdn.com/images/gayeong39/post/7ca1ca2e-8eed-4e32-8132-86cffec50180/image.png" />
+  
 <span style="font-size: 8pt;">이미지 출처 : <a href="https://m.post.naver.com/viewer/postView.naver?volumeNo=34803973&amp;memberNo=2953261">https://m.post.naver.com/viewer/postView.naver?volumeNo=34803973&amp;memberNo=2953261</a></span></p>
