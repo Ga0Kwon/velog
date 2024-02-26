@@ -24,7 +24,7 @@ LCS(Ri, Sj) : LCS(Ri-1, Sj-1) + 1
 </ul>
 <p>만약,Ri와 Sj가 다르다면,
 LCS(Xi, Yj) : max( LCS(Ri-1, Sj), LCS(Ri, Sj-1))     </p>
-<pre><code>- 이 규칙을 사용하여 코드를 작성하면 된다!
+- 이 규칙을 사용하여 코드를 작성하면 된다!
 
 <h2 id="코드">코드</h2>
 
