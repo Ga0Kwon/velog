@@ -145,4 +145,4 @@ public static int top_Down(int n){
 <ul>
 <li> 주로 나는 TOP-DOWN이 편해서 TOP-DOWN만 썼지만, 개념을 정리한 만큼 적절하게 사용할 수 있도록...😭🙆🏻‍♀️</li>
 </ul>
-![](https://velog.velcdn.com/images/gayeong39/post/82cce27c-dc21-4018-bcae-e81350500cdd/image.png)
+<img alt="" src="https://velog.velcdn.com/images/gayeong39/post/82cce27c-dc21-4018-bcae-e81350500cdd/image.png" />
