@@ -39,13 +39,13 @@ static int noDPSoultion(int N) { //DP 사용하지 않은 피보나치 솔루션
 </code></pre>
 
 <ul>
-<li><p>조건식을 따로 주지 않았으니 이전의 계산한 값도 무조건 계산을 할 것이다. 코드 상으로 봤을 때 &quot;크게 차이가 있을까 싶지만 구하려는 숫자가 클 수록 기하급수적으로 효율성의 차이가 생길 것이다. 
+<li><p>조건식을 따로 주지 않았으니 이전의 계산한 값도 무조건 계산을 할 것이다. 코드 상으로 봤을 때 &quot;크게 차이가 있을까 싶지만 구하려는 숫자가 클 수록 기하급수적으로 효율성의 차이가 생길 것이다. <br/>
 <img alt="" src="https://velog.velcdn.com/images/gayeong39/post/7265b29d-2262-4f76-9fcd-aa4bf34b023d/image.png" /></p>
 </li>
-<li><p>N이 30일 경우 소요 시간이 DP를 사용할때와 아닐떄의 차이가 큰 것을 알 수 있다.
+<li><p>N이 30일 경우 소요 시간이 DP를 사용할때와 아닐떄의 차이가 큰 것을 알 수 있다.<br/>
 <img alt="" src="https://velog.velcdn.com/images/gayeong39/post/c7c3f73c-5809-4ecb-8d1d-de817aed2bb4/image.png" /></p>
 </li>
-<li><p>입력 값이 커질 수록 소요시간은 더 기하급수적으로 올라가는 것을 알 수 있다. (DP를 사용하지 않으면 계산해야하는 부분이 훨씬 많아지는 거니까...)
+<li><p>입력 값이 커질 수록 소요시간은 더 기하급수적으로 올라가는 것을 알 수 있다. (DP를 사용하지 않으면 계산해야하는 부분이 훨씬 많아지는 거니까...)<br/>
 <img alt="" src="https://velog.velcdn.com/images/gayeong39/post/0ae3db6b-406e-442f-90a3-5589ce061ce2/image.png" /></p>
 </li>
 <li><p>즉, 위의 그래프와 같이 같은 색의 부분을 한번만 계산하면 DP를 적용한 것이고, 그렇지 않고 그때 그때 다시 구하면 DP를 사용하지 않는 코드라 볼 수 있다.</p>
@@ -142,4 +142,3 @@ public static void main(String[] args) throws IOException {
 <li> 주로 나는 TOP-DOWN이 편해서 TOP-DOWN만 썼지만, 개념을 정리한 만큼 적절하게 사용할 수 있도록...😭🙆🏻‍♀️</li>
 </ul>
 ![](https://velog.velcdn.com/images/gayeong39/post/82cce27c-dc21-4018-bcae-e81350500cdd/image.png)
-</code></pre>
