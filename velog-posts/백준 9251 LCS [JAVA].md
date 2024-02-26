@@ -26,9 +26,10 @@ LCS(Ri, Sj) : LCS(Ri-1, Sj-1) + 1
 LCS(Xi, Yj) : max( LCS(Ri-1, Sj), LCS(Ri, Sj-1))     </p>
 <pre><code>- 이 규칙을 사용하여 코드를 작성하면 된다!
 
-&gt; ## 코드
+<h2 id="코드">코드</h2>
 
-```java
+<pre><code class="language-java">
+    
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -82,7 +83,9 @@ public class Main {
 
         return dp[RIndex][SIndex];
     }
-}</code></pre><blockquote>
+}</code></pre>
+
+<blockquote>
 <h2 id="결과">결과</h2>
 </blockquote>
 <p><img alt="" src="https://velog.velcdn.com/images/gayeong39/post/1a016ad1-433e-48e5-9f15-e56ae5543cf2/image.png" /></p>
