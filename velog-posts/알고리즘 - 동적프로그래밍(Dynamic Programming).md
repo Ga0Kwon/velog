@@ -115,7 +115,8 @@ public static void main(String[] args) throws IOException {
 </ol>
 <ul>
 <li><span style="color: green;">위(UP = dp[n])의 값을 찾기 위해 해당 값을 바로 호출을 시작하여 아래(DOWN = dp[0])의 상태까지 내려간 다음 해당 결과 값을 재귀를 통해 전이시켜 재활용하는 방식</span>을 의미한다.</li>
-<li>코드를 예시로 들면 아래와 같다.
+<li>코드를 예시로 들면 아래와 같다.</li>
+        
 <pre><code class="language-java">
 /*
      import문 생략
@@ -138,6 +139,7 @@ public static void main(String[] args) throws IOException {
 
     return DP[n];
 }</code></pre>
+
 <ul>
 <li> 주로 나는 TOP-DOWN이 편해서 TOP-DOWN만 썼지만, 개념을 정리한 만큼 적절하게 사용할 수 있도록...😭🙆🏻‍♀️</li>
 </ul>
