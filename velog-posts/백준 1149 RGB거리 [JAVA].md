@@ -10,6 +10,8 @@
 <blockquote>
 <h2 id="코드">코드</h2>
 </blockquote>
+
+
 <pre><code class="language-java">import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.IOException;
@@ -48,6 +50,8 @@ public class Main {
         System.out.println(Math.min(homeColor[N-1][0], Math.min(homeColor[N-1][1], homeColor[N-1][2])));
     }
 }</code></pre>
+
+
 <blockquote>
 <h2 id="결과">결과</h2>
 </blockquote>
