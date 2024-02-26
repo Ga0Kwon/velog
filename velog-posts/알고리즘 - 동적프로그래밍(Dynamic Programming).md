@@ -12,27 +12,33 @@
 </ul>
 <h3 id="dp는-왜-사용하는가">DP는 왜 사용하는가?</h3>
 <ul>
-<li>여태까지 백준 문제를 풀면서 DP를 적용한 코드를 보면<span style="border-bottom: 1px solid black;"> 재귀와 비슷한 것</span>을 볼 수 있다. (아래와 같이)<pre><code class="language-java"></code></pre>
-</li>
-</ul>
+<li>여태까지 백준 문제를 풀면서 DP를 적용한 코드를 보면<span style="border-bottom: 1px solid black;"> 재귀와 비슷한 것</span>을 볼 수 있다. (아래와 같이)</li></ul>
+        
+<pre><code class="language-java">
 <p>/* DP를 적용한 코드 예시*/
 static int yesDPSoultion(int N){ //DP 사용하는 피보나치 솔루션
         if(yesDP[N] == null) {
             yesDP[N] = (yesDPSoultion(N - 1) + yesDPSoultion(N - 2));
         }</p>
-<pre><code>    return yesDP[N];
-}</code></pre><pre><code>- 위와 같이  &lt;span style=&quot;color:green&quot;&gt;getFibonacci(num)&lt;/span&gt;라는 함수를 재귀하는 것을 볼 수 있다. 
-- 코드를 보면 피보나치 구하는 문제라는 것은 익히 알 것이다! 다만! 다른 점이라면 바로 &lt;span style=&quot;color:green&quot;&gt;조건식!&lt;/span&gt; DP의 핵심인 부분이다!
+   return yesDP[N];
+}</code></pre>
+<ul>
+<li>위와 같이  &lt;span style=&quot;color:green&quot;&gt;getFibonacci(num)&lt;/span&gt;라는 함수를 재귀하는 것을 볼 수 있다. </li>
+<li>코드를 보면 피보나치 구하는 문제라는 것은 익히 알 것이다! 다만! 다른 점이라면 바로 &lt;span style=&quot;color:green&quot;&gt;조건식!&lt;/span&gt; DP의 핵심인 부분이다!</li>
+<li>예를 들어 그냥 DP를 적용하지 않고 피보나치를 구한다고 치자. (아래의 코드로 볼 수 있다.)</li>
+</ul>
 
-- 예를 들어 그냥 DP를 적용하지 않고 피보나치를 구한다고 치자. (아래의 코드로 볼 수 있다.)
-```java
+<pre><code class="language-java">
 /* DP를 적용하지 않은 예시*/
 static int noDPSoultion(int N) { //DP 사용하지 않은 피보나치 솔루션
         if(N &lt;= 1){
             return N;
         }
         return (noDPSoultion(N-1) + noDPSoultion(N-2));
-    }</code></pre><ul>
+    }
+</code></pre>
+
+<ul>
 <li><p>조건식을 따로 주지 않았으니 이전의 계산한 값도 무조건 계산을 할 것이다. 코드 상으로 봤을 때 &quot;크게 차이가 있을까 싶지만 구하려는 숫자가 클 수록 기하급수적으로 효율성의 차이가 생길 것이다. 
 <img alt="" src="https://velog.velcdn.com/images/gayeong39/post/7265b29d-2262-4f76-9fcd-aa4bf34b023d/image.png" /></p>
 </li>
@@ -75,7 +81,9 @@ static int noDPSoultion(int N) { //DP 사용하지 않은 피보나치 솔루션
 <li><p>방식명 그대로 <span style="border-bottom: 1px solid black;">아래(Bottom)에서 부터 계산을 수행 하고 누적으로 위의 전체 문제(UP)를 해결하는 방식</span>을 의미한다. </p>
 </li>
 <li><p>코드를 예시로 들면 아래와 같다.</p>
-<pre><code class="language-java">/*
+        
+<pre><code class="language-java">
+/*
    import문 생략
 */
 
@@ -99,6 +107,7 @@ public static void main(String[] args) throws IOException {
       }
       return DP[n];
   }</code></pre>
+
 </li>
 </ul>
 <ol start="2">
@@ -106,15 +115,14 @@ public static void main(String[] args) throws IOException {
 </ol>
 <ul>
 <li><span style="color: green;">위(UP = dp[n])의 값을 찾기 위해 해당 값을 바로 호출을 시작하여 아래(DOWN = dp[0])의 상태까지 내려간 다음 해당 결과 값을 재귀를 통해 전이시켜 재활용하는 방식</span>을 의미한다.</li>
-<li>코드를 예시로 들면 아래와 같다.<pre><code class="language-java"></code></pre>
-</li>
-</ul>
-<p>/*
+<li>코드를 예시로 들면 아래와 같다.
+<pre><code class="language-java">
+/*
      import문 생략
-*/</p>
-<p> static Integer[] DP; </p>
-<p> public static void main(String[] args) throws IOException {
-        int N = 45;</p>
+*/
+static Integer[] DP; 
+public static void main(String[] args) throws IOException {
+        int N = 45;
 <pre><code>    DP = new Integer[N+1];
 
     //초기 값
@@ -129,7 +137,9 @@ public static void main(String[] args) throws IOException {
     DP[n] = topDown(n-1) + topDown(n-2);
 
     return DP[n];
-}</code></pre><pre><code>- 주로 나는 TOP-DOWN이 편해서 TOP-DOWN만 썼지만, 개념을 정리한 만큼 적절하게 사용할 수 있도록...😭🙆🏻‍♀️
-
+}</code></pre>
+<ul>
+<li> 주로 나는 TOP-DOWN이 편해서 TOP-DOWN만 썼지만, 개념을 정리한 만큼 적절하게 사용할 수 있도록...😭🙆🏻‍♀️</li>
+</ul>
 ![](https://velog.velcdn.com/images/gayeong39/post/82cce27c-dc21-4018-bcae-e81350500cdd/image.png)
 </code></pre>
