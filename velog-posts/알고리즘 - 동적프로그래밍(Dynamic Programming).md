@@ -122,16 +122,16 @@ public static void main(String[] args) throws IOException {
      import문 생략
 */
 static Integer[] DP; 
-public static void main(String[] args) throws IOException {
-        int N = 45;
-<pre><code>    DP = new Integer[N+1];
+public static void main(String[] args) throws IOException {  
+    int N = 45;
+    DP = new Integer[N+1];
 
     //초기 값
     DP[0] = 0;
     DP[1] = 1;</code></pre><p>  }</p>
-<p> // Top-Down 방식으로 피보나치 수 구하는 경우
+    // Top-Down 방식으로 피보나치 수 구하는 경우
     public static int top_Down(int n){</p>
-<pre><code>    // 이미 계산한 값이면 -&gt; 이미 계산값을 메모하여 재사용하므로 Memoization이라 부른다.
+    // 이미 계산한 값이면 -&gt; 이미 계산값을 메모하여 재사용하므로 Memoization이라 부른다.
     if(DP[n] != null) return DP[n];
 
     // 재귀를 사용
