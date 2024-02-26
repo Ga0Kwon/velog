@@ -128,9 +128,10 @@ public static void main(String[] args) throws IOException {
 
     //초기 값
     DP[0] = 0;
-    DP[1] = 1;</code></pre><p>  }</p>
+    DP[1] = 1; 
+}
     // Top-Down 방식으로 피보나치 수 구하는 경우
-    public static int top_Down(int n){</p>
+public static int top_Down(int n){
     // 이미 계산한 값이면 -&gt; 이미 계산값을 메모하여 재사용하므로 Memoization이라 부른다.
     if(DP[n] != null) return DP[n];
 
@@ -138,7 +139,8 @@ public static void main(String[] args) throws IOException {
     DP[n] = topDown(n-1) + topDown(n-2);
 
     return DP[n];
-}</code></pre>
+}
+</code></pre>
 
 <ul>
 <li> 주로 나는 TOP-DOWN이 편해서 TOP-DOWN만 썼지만, 개념을 정리한 만큼 적절하게 사용할 수 있도록...😭🙆🏻‍♀️</li>
